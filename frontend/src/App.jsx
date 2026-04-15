@@ -1,25 +1,20 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
-import Productos from './pages/Productos';
-import Login from './pages/Login';
-import ProtectedRoute from './components/layout/ProtectedRoute';
+import AdminPag from './pages/AdminPag';
+import RecepPag from './pages/RecepPag';
+import UsuarioPag from './pages/UsuarioPag';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route element={<ProtectedRoute />}>
-          <Route path="/*" element={
-            <Layout>
-              <Routes>
-                <Route path="/" element={<Navigate to="/productos" replace />} />
-                <Route path="/productos" element={<Productos />} />
-              </Routes>
-            </Layout>
-          } />
-        </Route>
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<AdminPag />} />
+          <Route path="/admin" element={<AdminPag />} />
+          <Route path="/recepcionista" element={<RecepPag />} />
+          <Route path="/usuario" element={<UsuarioPag />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 }

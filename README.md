@@ -1,6 +1,6 @@
 # API Hotel – Guía de Consumo
 
-##  Base URL
+##  Base URL (this is already in api.js)
 
 ```
 http://localhost:4000/db
@@ -171,9 +171,3 @@ http://localhost:4000/db
 5. Agregar servicios
 
 ---
-
-Si quieres, te lo puedo convertir en:
-
-* Swagger (para que lo prueben directo en navegador)
-* Colección de Postman lista para importar
-* O ejemplos en React Native para consumirla 👀
