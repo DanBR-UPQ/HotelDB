@@ -130,8 +130,9 @@ export default function AdminPag() {
   const handleAuthError = (err) => {
     const msg = err?.message || '';
     if (msg.includes('401')) {
-      localStorage.removeItem('token');
-      window.location.href = '/login';
+      /* localStorage.removeItem('token');
+      window.location.href = '/login'; */
+      console.log("no hay auth ahorita esto no hace nada")
       return true;
     }
     return false;

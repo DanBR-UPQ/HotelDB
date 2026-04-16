@@ -25,5 +25,32 @@ export const api = {
     });
     if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
     return await response.json();
+  },
+
+  put: async (endpoint, body) => {
+    const token = localStorage.getItem('token');
+    const response = await fetch(`${API_URL}${endpoint}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': token ? `Bearer ${token}` : '',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+    if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
+    return await response.json();
+  },
+
+  delete: async (endpoint) => {
+    const token = localStorage.getItem('token');
+    const response = await fetch(`${API_URL}${endpoint}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': token ? `Bearer ${token}` : '',
+        'Content-Type': 'application/json'
+      }
+    });
+    if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
+    return response.status === 204 ? null : await response.json();
   }
 };
